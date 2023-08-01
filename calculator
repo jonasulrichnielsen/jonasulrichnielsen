@@ -1,0 +1,56 @@
+def toplama(x, y):
+    return x + y
+
+def cikarma(x, y):
+    return x - y
+
+def carpma(x, y):
+    return x * y
+
+def bolme(x, y):
+    if y == 0:
+        raise ValueError("Bölen 0 olamaz.")
+    return x / y
+
+def hesap_makinesi():
+    print("Hesap Makinesine Hoş Geldiniz!")
+    print("İşlem yapmak için iki sayı ve işlem türü seçin.")
+    
+    while True:
+        try:
+            sayi1 = float(input("İlk sayıyı girin: "))
+            sayi2 = float(input("İkinci sayıyı girin: "))
+            
+            print("İşlem türünü seçin:")
+            print("1. Toplama")
+            print("2. Çıkarma")
+            print("3. Çarpma")
+            print("4. Bölme")
+            print("5. Çıkış yap")
+            
+            secim = input("Seçiminizi girin (1/2/3/4/5): ")
+            
+            if secim == '1':
+                sonuc = toplama(sayi1, sayi2)
+            elif secim == '2':
+                sonuc = cikarma(sayi1, sayi2)
+            elif secim == '3':
+                sonuc = carpma(sayi1, sayi2)
+            elif secim == '4':
+                sonuc = bolme(sayi1, sayi2)
+            elif secim == '5':
+                print("Hesap makinesi kapatılıyor...")
+                break
+            else:
+                print("Geçersiz seçim! Lütfen 1, 2, 3, 4 veya 5 girin.")
+                continue
+            
+            print("Sonuç: ", sonuc)
+        
+        except ValueError as ve:
+            print("Hata: Geçersiz giriş. Lütfen sayıları doğru formatta girin.")
+        except ZeroDivisionError as zde:
+            print("Hata: Bölen 0 olamaz. Lütfen ikinci sayıyı farklı bir değer seçin.")
+
+if __name__ == "__main__":
+    hesap_makinesi()
