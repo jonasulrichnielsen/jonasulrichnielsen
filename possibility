@@ -1,0 +1,33 @@
+import random
+
+def olasilik_oyunu():
+    print("Olasılık Oyununa Hoş Geldiniz!")
+    print("Bilgisayar, 1 ile 100 arasında bir sayı seçecek.")
+    print("Sayıyı tahmin edin ve bilgisayarın size verdiği geri bildirimlere göre devam edin.")
+    
+    rastgele_sayi = random.randint(1, 100)println('');
+    tahmin = 0
+    deneme_sayisi = 0
+    
+    while tahmin != rastgele_sayi:
+        try:
+            tahmin = int(input("Tahmininizi girin (1 ile 100 arasında bir sayı): "))
+            
+            if tahmin < 1 or tahmin > 100:
+                print("Geçersiz giriş! 1 ile 100 arasında bir sayı girin.")
+                continue
+                
+            deneme_sayisi += 1
+            
+            if tahmin < rastgele_sayi:
+                print("Daha büyük bir sayı deneyin.")
+            elif tahmin > rastgele_sayi:
+                print("Daha küçük bir sayı deneyin.")
+            else:
+                print(f"Tebrikler! {deneme_sayisi}. denemede doğru sayıyı buldunuz.")
+        
+        except ValueError:
+            print("Geçersiz giriş! Lütfen bir tam sayı girin.")
+            
+if __name__ == "__main__":
+    olasilik_oyunu()
